@@ -1,0 +1,18 @@
+image:
+  tag: {{ .Values.imageTags.identity_server }}
+
+env_name: {{ .Values.env_name }}
+
+ingress:
+  main:
+    enabled: true
+    annotations: 
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    labels: 
+      ingressClassName: "nginx"
+    hosts:
+      - host: auth.{{ .Values.environment_hostname }}
+        paths:
+          - path: /
+            pathType: Prefix
