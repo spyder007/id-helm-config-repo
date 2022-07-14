@@ -1,6 +1,7 @@
 commonConfigMap:
   Identity__AuthorityUrl : "https://auth.{{ .Values.environment_hostname }}"
-  {{ if eq .Values.env_name "test"  }}
+  Zipkin__Host : "https://tempo.mattgerega.net/zipkin/spans"
+  {{ if eq .Environment.Name "test"  }}
   Serilog__MinimumLevel__Default: "Debug"
   Serilog__MinimumLevel__Override__Microsoft: "Information"
   Serilog__MinimumLevel__Override__System: "Information"
@@ -8,6 +9,6 @@ commonConfigMap:
   Serilog__MinimumLevel__Default: "Warning"
   {{ end }}
   AllowedOrigins__0: "https://*.{{ .Values.environment_hostname }}"
-  {{ if eq .Values.env_name "test"  }}
+  {{ if eq .Environment.Name "test"  }}
   AllowedOrigins__1: "http://localhost:3000"
   {{ end }}

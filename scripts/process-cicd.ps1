@@ -19,6 +19,7 @@ if ($shortBranchName -match 'feature/(.*)') {
     if ($branchExists) {
         Write-Host "Using existing branch -> $helmBranch"
         git checkout "$helmBranch"
+        git branch --set-upstream-to="origin/$helmBranch" "$helmBranch"
     }
     else {
         Write-Host "Creating new local branch -> $helmBranch"

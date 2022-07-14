@@ -8,11 +8,21 @@ strategy:
 imagePullSecrets: 
   - name: spydersoft-proget
 
+podLabels:
+  spydersoft.io/log: dotnet-serilog
+  
 envFrom: 
   - configMapRef:
       name: identity-common-config
   - secretRef:
       name: identity-server-secrets
+
+env:
+  Zipkin__ServiceName: ""
+
+vault:
+  environment: ""
+  
 service:
   main:
     ports:

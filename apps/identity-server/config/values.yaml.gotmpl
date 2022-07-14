@@ -1,7 +1,11 @@
 image:
   tag: {{ .Values.imageTags.identity_server }}
 
-env_name: {{ .Values.env_name }}
+env:
+  Zipkin__ServiceName: "identity-server-{{ .Environment.Name }}"
+
+vault:
+  environment: {{ .Environment.Name | quote }} 
 
 ingress:
   main:
