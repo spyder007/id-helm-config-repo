@@ -2,15 +2,15 @@ resources:
   repositories:
     - repository: ops_nonprod_cluster
       type: github
-      endpoint: spyder007
+      endpoint: spydersoft-gh
       name: spydersoft-consulting/ops-nonprod-cluster
     - repository: ops_prod_cluster
       type: github
-      endpoint: spyder007
+      endpoint: spydersoft-gh
       name: spydersoft-consulting/ops-prod-cluster
     - repository: templates
       type: github
-      endpoint: spyder007
+      endpoint: spydersoft-gh
       name: spydersoft-consulting/azure-devops-templates
 
 trigger:
