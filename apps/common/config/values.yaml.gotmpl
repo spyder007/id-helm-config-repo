@@ -1,6 +1,9 @@
 commonConfigMap:
   Identity__AuthorityUrl : "https://auth.{{ .Values.environment_hostname }}"
-  Zipkin__Host : "https://tempo.mattgerega.net/zipkin/spans"
+  Telemetry__Otlp__Endpoint : "http://tfx-internal.gerega.net:32326"
+  Telemetry__ActivitySourceName: "Identity.{{ title .Values.env_name }}.Activity"
+  Telemetry__MeterName: "Identity.{{ title .Values.env_name }}.Meter"
+  Telemetry__ServiceName: "Identity.{{ title .Values.env_name }}"
   {{ if eq .Environment.Name "test"  }}
   Serilog__MinimumLevel__Default: "Information"
   Serilog__MinimumLevel__Override__Microsoft: "Information"
