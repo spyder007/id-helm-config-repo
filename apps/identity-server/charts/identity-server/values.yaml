@@ -1,12 +1,12 @@
 image:
-  repository: proget.mattgerega.com/spydersoft/identity/identity_server
+  repository: ghcr.io/spyder007/identity_server
   pullPolicy: IfNotPresent
 
 strategy:
   type: Recreate
 
 imagePullSecrets: 
-  - name: spydersoft-proget
+  - name: cr-spydersoft-github
 
 podLabels:
   spydersoft.io/log: dotnet-serilog
